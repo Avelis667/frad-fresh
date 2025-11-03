@@ -1,0 +1,21 @@
+﻿name: CI
+
+on:
+  push:
+    branches: [ main, dev ]
+  pull_request:
+
+jobs:
+  lint_and_audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --ignore-scripts --omit=optional
+      - run: npm run format        # prettier -c .
+      - run: npm run lint || true  # мягко: не валим билд на старте
+      - name: npm audit (high) — мягко
+        run: npm audit --audit-level=high || true
