@@ -31,6 +31,7 @@
     "pino": "^10.1.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.0",
     "eslint": "^9.39.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-import": "^2.32.0",
