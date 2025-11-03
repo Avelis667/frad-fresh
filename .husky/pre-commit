@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+npx prettier -w .
+npx eslint . --fix || true
+exit 0
